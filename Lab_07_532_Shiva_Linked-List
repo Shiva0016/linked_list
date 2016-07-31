@@ -1,0 +1,97 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node{
+	int info;
+	struct node *next;
+};
+
+typedef struct node *nodeptr;
+nodeptr getnode()
+	{
+		return (nodeptr)malloc(sizeof(nodeptr));
+	}
+ 
+	void free_node(nodeptr p)
+	{
+		free(p);
+	}
+	
+	void insert_at_front(nodeptr* p,int x)
+	{
+			nodeptr q;
+			q=getnode();
+			q->info=x;
+			q->next=*p;
+			*p=q;
+	}
+
+	int remove_from_front(nodeptr *p)	
+		{
+   		if(*p==NULL)
+   			{
+       			printf("There is no element left to remove.\n\xB2\xB2\xB2\xB2\xB2\n*****Underflow*****"); 
+       			exit(0);
+   			}
+   		else
+    
+    		{		
+        		nodeptr q;
+		        int x;
+		        q=*p;
+		        *p= q->next;
+		        x=q->info;
+		        return x;
+		        freenode(q);
+    		}
+	
+		}
+int main()
+	{
+	int num[5]={1,2,3,4,5};
+	int x1,x2,x3,x4,x5,x6;
+	nodeptr p;
+	p=NULL;
+	printf("Press Enter to insert the number in linked list: \n");
+	getch();
+	system("cls");
+	insert_at_front(&p,num[0]);
+	printf("%d is inserted in linked list \n",num[0]);
+	getch();
+    insert_at_front(&p,num[1]);
+    printf("%d is inserted in linked list\n",num[1]);
+    getch();
+	insert_at_front(&p,num[2]);
+	printf("%d is inserted in linked list\n",num[2]);
+	getch();
+	insert_at_front(&p,num[3]);
+	printf("%d is inserted in linked list\n",num[3]);
+	getch();
+	insert_at_front(&p,num[4]);
+	printf("%d is inserted in linked list\n",num[4]);
+	getch();
+	system("cls");
+	printf("Press Enter to remove the inserted numbers from the linked list:\n");
+	getch();
+	system("cls");
+    x1=remove_from_front(&p);
+    printf("%d is removed from linked list\n",x1);
+    getch();
+    x2=remove_from_front(&p);
+    printf("%d is removed from linked list\n",x2);
+    getch();
+    x3=remove_from_front(&p);
+    printf("%d is removed from linked list\n",x3);
+    getch();
+    x4=remove_from_front(&p);
+    printf("%d is removed from linked list\n",x4);
+    getch();
+    x5=remove_from_front(&p);
+    printf("%d is removed from linked list\n",x5);
+    getch();
+    system("cls");
+    x6=remove_from_front(&p);
+    printf("%d is removed from linked list\n",x6);
+    return 0;
+}
+	
